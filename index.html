@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <title>Train Scheduler</title>
+
+    <!-- BOOTSTRAP CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- FONT AWESOME CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- ORIGINAL RESET -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+
+    <!-- ORIGINAL CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- FIREBASE CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+    <!-- MOMENTJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <!-- GOOGLE FONT CDN -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <h1><span class="fa fa-newspaper-o"></span>Train</h1>
+
+    <!-- DISPLAY SCHEDULE -->
+    <div id="schedule-display" class="container">
+        <p id="current-schedule"><span class="fa fa-table"></span>Current Train Schedule</p>
+        <div id="schedule-div" class="row">
+          
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- <tr>
+                    <th id="name-column"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+
+                </tbody>
+                </table>
+    </div>
+
+
+
+    </div>
+
+    <!-- SEARCH FORM -->
+    <div class="search-div">
+        <p id="search-parameters"><span class="fa fa-list-alt"></span>  Search Parameters</p>
+        <form>
+            <div class="form-group">
+                <label>Train Name</label>
+                <input type="text" class="form-control" placeholder="" id="train-name"><br>
+
+                <label>Destination</label>
+                <input type="text" class="form-control" placeholder="" id="destination"><br>
+
+                <label>First Train Time (HH:mm - military time)</label>
+                <input type="text" class="form-control" placeholder="" id="train-time"><br>
+
+                <label>Frequency (min)</label>
+                <input type="text" class="form-control" placeholder="" id="frequency">
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-secondary" id="submit">
+            <!-- <input type="submit" value="Clear Results" class="btn btn-secondary glyphicon glyphicon-search" id="clear"> -->
+        </form>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- ORIGINAL JAVASCRIPT -->
+    <script src="assets/javascript/app.js"></script>
+
+</body>

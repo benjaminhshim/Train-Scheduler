@@ -1,0 +1,72 @@
+body {
+    margin: 0 auto;
+    width: 80%;
+    font-family: helvetica;
+}
+
+#schedule-item {
+    background-color: rgb(236, 235, 235);
+    color: rgb(42, 47, 102);
+    padding: 50px 20px 20px 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+
+#article-url {
+    color: rgb(89, 192, 153);
+}
+
+h3 {
+    font-size: 24px;
+}
+
+a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#current-schedule {
+    color: white;
+    background: rgb(42, 47, 102);
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+h1 {
+    text-align: center;
+    background: rgb(33, 37, 80);
+    color: white;
+    padding: 50px;
+    border-radius: 5px;
+    font-size: 50px;
+}
+
+.search-div {
+    border: 1px solid rgb(30, 32, 65);;
+    margin: 30px 0px;
+    border-radius: 5px;
+}
+
+.search-div form {
+    padding: 20px;
+
+}
+
+.search-div p {
+    color: white;
+    background: rgb(42, 47, 102);
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0;
+}
+
+#schedule-div {
+    line-height: 0.75;
+}
+
+#current-schedule,
+#search-parameters,
+label {
+    font-weight: bold;
+}
