@@ -1,7 +1,56 @@
 body {
     margin: 0 auto;
+    font-family: 'Helvetica Neue';
+    box-sizing: border-box;
+}
+
+/* ======== TITLE ========== */
+
+h1 {
+    text-align: center;
+    background: rgb(33, 201, 173);
+    color: white;
+    padding: 20px;
+    font-size: 28px;
+    letter-spacing: 5px;
+    margin-bottom: 0;
+}
+
+#time {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    box-shadow: 0px 4px 20px -1px darkslategray;
+
+}
+
+/* ======== SCHEDULE DISPLAY ========== */
+
+#schedule-display {
     width: 80%;
-    font-family: helvetica;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    box-shadow: 0px 5px 20px -5px black;
+}
+
+
+#current-schedule {
+    color: darkslategray;
+    background: lightgray;
+    /* background: linear-gradient(to top left, darkgray, black); */
+    padding: 10px;
+    text-align: center;
+    border-radius: none;
+    letter-spacing: 3px;
+}
+
+#schedule-div {
+    line-height: 0.75;
 }
 
 #schedule-item {
@@ -9,64 +58,86 @@ body {
     color: rgb(42, 47, 102);
     padding: 50px 20px 20px 20px;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: none;
 }
 
-
-#article-url {
-    color: rgb(89, 192, 153);
+tr:nth-child(even) {
+    background: rgb(179, 233, 223);
+    color: black;
 }
 
-h3 {
-    font-size: 24px;
-}
-
-a {
-    font-size: 16px;
-    text-decoration: none;
-}
-
-#current-schedule {
-    color: white;
-    background: rgb(42, 47, 102);
-    padding: 10px;
-    border-radius: 5px 5px 0px 0px;
-}
-
-h1 {
+#schedule-titles {
+    letter-spacing: 3px;
     text-align: center;
-    background: rgb(33, 37, 80);
-    color: white;
-    padding: 50px;
-    border-radius: 5px;
-    font-size: 50px;
+    font-size: 14px;
 }
+
+td {
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+
+/* ======== SEARCH DISPLAY ========== */
 
 .search-div {
-    border: 1px solid rgb(30, 32, 65);;
     margin: 30px 0px;
-    border-radius: 5px;
-}
-
-.search-div form {
-    padding: 20px;
-
+    margin: 0 auto;
+    box-shadow: 0px 5px 20px -5px black;
+    background: lightgray;
+    color: black;
 }
 
 .search-div p {
     color: white;
-    background: rgb(42, 47, 102);
+    background: gray;
     padding: 10px;
-    border-radius: 5px 5px 0px 0px;
     margin-bottom: 0;
+    text-align: center;
+    border-radius: none;
+    letter-spacing: 3px;
+    width: 100%;
 }
 
-#schedule-div {
-    line-height: 0.75;
+.search-div form {
+    padding: 20px;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.form-group input {
+    border-radius: none;
 }
 
 #current-schedule,
 #search-parameters,
 label {
     font-weight: bold;
+}
+
+#submit {
+    background: rgb(33, 201, 173);
+    
+    border: none;
+    border-radius: none;
+    letter-spacing: 5px;
+}
+
+
+
+/* ======== GOOGLE MAPS DISPLAY ========== */
+.google-maps {
+    box-shadow: 0px 5px 20px -5px black;
+    background: lightgray;
+    position: relative;
+}
+
+#google-maps-display {
+    position: absolute;
+    border: 1px solid black;
+    top: 20px;
+    left: 35px;
 }

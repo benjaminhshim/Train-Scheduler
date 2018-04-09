@@ -21,6 +21,18 @@ $(document).ready(function() {
     var frequency = '';
     var nextArrival = '';
     var minutesAway = '';
+    var currentTime;
+
+    function updateTime(){
+        var nextTrain = moment().format('HH:mm:ss a');
+        $('#time').html(nextTrain);
+    };
+    
+    updateTime();
+
+    setInterval(function(){
+       updateTime();
+    },1000);
 
 
     // RETRIVE INFORMATION FROM FIREBASE AND DISPLAY TO WINDOW
@@ -67,8 +79,10 @@ $(document).ready(function() {
             tableRow.append(showMinutesAway);
         }
 
-
         tableBody.append(tableRow);
+
+
+        $('#google-maps-display').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyBhSBjmU-q9Jf9qFxhho_cfQjWwo2aJcYs&q=" + ts.destination);
 
     }); // end display from firebase
 
@@ -112,7 +126,14 @@ $(document).ready(function() {
         });
 
 
+
+        // $('#google-maps-display').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyBhSBjmU-q9Jf9qFxhho_cfQjWwo2aJcYs&q=" + destination);
+
+
+
     }); // end click event
+
+
 
 
 }); // end document ready function

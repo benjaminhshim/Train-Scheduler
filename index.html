@@ -31,21 +31,24 @@
 <body>
 
     <!-- HEADER -->
-    <h1><span class="fa fa-newspaper-o"></span>Train</h1>
+    <header>
+        <h1>train schedule</h1>
+        <!-- <p id='time'></p> -->
+    </header>
 
     <!-- DISPLAY SCHEDULE -->
     <div id="schedule-display" class="">
-        <p id="current-schedule"><span class="fa fa-table"></span>Current Train Schedule</p>
+        <p id="current-schedule"><span class="fa fa-table"></span> Current Train Schedule</p>
         <div id="schedule-div" class="">
           
             <table class="table">
                 <thead>
-                    <tr>
-                    <th scope="col">Train Name</th>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Frequency (min)</th>
-                    <th scope="col">Next Arrival</th>
-                    <th scope="col">Minutes Away</th>
+                    <tr id="schedule-titles">
+                    <th scope="col">TRAIN NAME</th>
+                    <th scope="col">DESTINATION</th>
+                    <th scope="col">FREQUENCY (min)</th>
+                    <th scope="col">NEXT ARRIVAL</th>
+                    <th scope="col">MINUTES AWAY</th>
                     </tr>
                 </thead>
 
@@ -67,31 +70,50 @@
     </div>
 
     <!-- SEARCH FORM -->
-    <div class="search-div">
-        <p id="search-parameters"><span class="fa fa-list-alt"></span>  Search Parameters</p>
-        <form>
-            <div class="form-group">
-                <label>Train Name</label>
-                <input type="text" class="form-control" placeholder="" id="train-name"><br>
+    <div class="container">
+        <div class="row">
 
-                <label>Destination</label>
-                <input type="text" class="form-control" placeholder="" id="destination"><br>
+            <div class="search-div col-5">
+                <p id="search-parameters"><span class="fa fa-list-alt"></span>  Search</p>
+                <form>
+                    <div class="form-group">
+                        <label>TRAIN NAME</label>
+                        <input type="text" class="form-control" placeholder="" id="train-name"><br>
 
-                <label>First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control" placeholder="" id="train-time"><br>
+                        <label>DESTINATION</label>
+                        <input type="text" class="form-control" placeholder="" id="destination"><br>
 
-                <label>Frequency (min)</label>
-                <input type="text" class="form-control" placeholder="" id="frequency">
+                        <label>FIRST TRAIN TIME (HH:mm - military time)</label>
+                        <input type="text" class="form-control" placeholder="" id="train-time"><br>
+
+                        <label>FREQUENCY (min)</label>
+                        <input type="text" class="form-control" placeholder="" id="frequency">
+                    </div>
+
+                    <input type="submit" value="SUBMIT" class="btn btn-secondary" id="submit">
+                    <!-- <input type="submit" value="Clear Results" class="btn btn-secondary glyphicon glyphicon-search" id="clear"> -->
+                </form>
             </div>
 
-            <input type="submit" value="Submit" class="btn btn-secondary" id="submit">
-            <!-- <input type="submit" value="Clear Results" class="btn btn-secondary glyphicon glyphicon-search" id="clear"> -->
-        </form>
+            <div class="col-2"></div>
+
+
+            <div class="google-maps col-5">
+
+                <iframe id="google-maps-display"
+                    width="400"
+                    height="425"
+                    frameborder="0" style="border:0"
+                     allowfullscreen>
+
+                </iframe>
+                
+            </div>
+
+        </div>
     </div>
 
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -101,4 +123,5 @@
     <!-- ORIGINAL JAVASCRIPT -->
     <script src="assets/javascript/app.js"></script>
 
+          
 </body>
