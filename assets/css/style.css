@@ -8,11 +8,13 @@ body {
 
 h1 {
     text-align: center;
-    background: rgb(33, 201, 173);
+    /* background: rgb(33, 201, 173); */
+    background: rgb(4, 155, 201);
+
     color: white;
     padding: 20px;
     font-size: 28px;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     margin-bottom: 0;
 }
 
@@ -35,7 +37,8 @@ h1 {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 50px;
-    box-shadow: 0px 5px 20px -5px black;
+    box-shadow: 0px 5px 20px -7px black;
+    /* border-bottom: 10px solid rgb(49, 121, 143); */
 }
 
 
@@ -46,7 +49,7 @@ h1 {
     padding: 10px;
     text-align: center;
     border-radius: none;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 
 #schedule-div {
@@ -55,14 +58,15 @@ h1 {
 
 #schedule-item {
     background-color: rgb(236, 235, 235);
-    color: rgb(42, 47, 102);
     padding: 50px 20px 20px 20px;
     margin: 10px;
     border-radius: none;
 }
 
 tr:nth-child(even) {
-    background: rgb(179, 233, 223);
+    /* background: rgb(179, 233, 223); */
+    background: rgb(182, 221, 233);
+
     color: black;
 }
 
@@ -70,6 +74,8 @@ tr:nth-child(even) {
     letter-spacing: 3px;
     text-align: center;
     font-size: 14px;
+    color: rgb(34, 158, 196);
+
 }
 
 td {
@@ -79,14 +85,19 @@ td {
 }
 
 
-
+.container {
+    margin-bottom: 30px;
+}
 
 /* ======== SEARCH DISPLAY ========== */
 
 .search-div {
     margin: 30px 0px;
     margin: 0 auto;
-    box-shadow: 0px 5px 20px -5px black;
+    /* box-shadow: 0px 5px 20px -5px black; */
+    box-shadow: 0px 2px 10px -5px black;
+    border: 0.5px solid lightgray;
+
     background: lightgray;
     color: black;
 }
@@ -98,7 +109,7 @@ td {
     margin-bottom: 0;
     text-align: center;
     border-radius: none;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     width: 100%;
 }
 
@@ -109,35 +120,50 @@ td {
 }
 
 .form-group input {
-    border-radius: none;
+    border-radius: 0px;
+
 }
 
-#current-schedule,
-#search-parameters,
 label {
     font-weight: bold;
+    margin-bottom: 2px;
 }
 
 #submit {
-    background: rgb(33, 201, 173);
-    
+    /* background: rgb(33, 201, 173); */
+    background: rgb(0, 163, 212);
+
     border: none;
-    border-radius: none;
-    letter-spacing: 5px;
+    border-radius: 0;
+    letter-spacing: 3px;
 }
 
 
 
 /* ======== GOOGLE MAPS DISPLAY ========== */
 .google-maps {
-    box-shadow: 0px 5px 20px -5px black;
-    background: lightgray;
+    /* box-shadow: 0px 5px 20px -5px black; */
+    border: 0.5px solid lightgray;
+    box-shadow: 0px 2px 10px -5px black;
+    background: white;
     position: relative;
+}
+
+#google-maps-title {
+    color: darkslategray;
+    background: lightgray;
+    padding: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    border-radius: none;
+    letter-spacing: 3px;
+    width: 100%;
 }
 
 #google-maps-display {
     position: absolute;
     border: 1px solid black;
-    top: 20px;
-    left: 35px;
+    top: 65px;
+    left: 0px;
 }
+

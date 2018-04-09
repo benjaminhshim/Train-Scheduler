@@ -35,8 +35,9 @@ $(document).ready(function() {
     },1000);
 
 
+
     // RETRIVE INFORMATION FROM FIREBASE AND DISPLAY TO WINDOW
-    database.ref().orderByChild('dateAdded').limitToLast(1).on('child_added', function(snapshot) {
+    database.ref().orderByChild('dateAdded').on('child_added', function(snapshot) {
 
         var ts = snapshot.val();
         console.log(ts);
@@ -79,7 +80,14 @@ $(document).ready(function() {
             tableRow.append(showMinutesAway);
         }
 
+
         tableBody.append(tableRow);
+
+
+
+        // var new_item = $('<p>hello</p>').hide();
+        // parent.append(new_item);
+        // new_item.show('normal');
 
 
         $('#google-maps-display').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyBhSBjmU-q9Jf9qFxhho_cfQjWwo2aJcYs&q=" + ts.destination);
