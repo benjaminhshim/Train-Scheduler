@@ -9,7 +9,7 @@ body {
 h1 {
     text-align: center;
     /* background: rgb(33, 201, 173); */
-    background: rgb(4, 155, 201);
+    background: rgb(33, 146, 221);
 
     color: white;
     padding: 20px;
@@ -89,6 +89,23 @@ td {
     margin-bottom: 30px;
 }
 
+#editButton,
+#removeButton {
+    background: gray;
+    color: white;
+    border: none;
+    border-radius: 0;
+    letter-spacing: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    width: 90px;
+
+}
+
+
+
 /* ======== SEARCH DISPLAY ========== */
 
 .search-div {
@@ -166,4 +183,91 @@ label {
     top: 65px;
     left: 0px;
 }
+
+
+
+
+
+/* ============ LOGIN ============ */
+
+
+#btnLogin {
+    background: gray;
+    color: white;
+    box-shadow: 2px 5px 20px -1px slategray;
+    font-size: 12px;
+    width: 250px;
+    margin-right: 50px;
+    border-radius: 0;
+    letter-spacing: 5px;
+}
+
+
+
+#submit-button,
+#btnSignUp {
+    background: black;
+    color: white;
+    box-shadow: 2px 5px 20px -1px slategray;
+    font-size: 12px;
+    width: 250px;
+    margin-right: 50px;
+    border-radius: 0;
+    letter-spacing: 5px;
+}
+
+
+#top-bar {
+    position: relative;
+}
+
+#btnLogout {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    background: white;
+    color: black;
+    /* box-shadow: 2px 5px 20px -1px slategray; */
+    font-size: 12px;
+    width: 150px;
+    border-radius: 0;
+    letter-spacing: 5px;
+}
+
+
+
+.login {
+    height: 350px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border: 1px solid lightgray;
+    box-shadow: 0px 2px 10px -5px black;
+    padding-top: 65px;
+}
+
+.login p {
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+#txtEmail,
+#txtPassword {
+    width: 80%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* #btnLogin {
+    margin-top: 20px;
+} */
+
+#btnLogin,
+#btnSignUp {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
 

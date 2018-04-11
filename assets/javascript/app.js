@@ -22,6 +22,8 @@ $(document).ready(function() {
     var nextArrival = '';
     var minutesAway = '';
     var currentTime;
+    var trainItemCount = 1;
+
 
     function updateTime(){
         var nextTrain = moment().format('HH:mm:ss a');
@@ -36,6 +38,85 @@ $(document).ready(function() {
 
 
 
+
+
+    // =========== LOG IN ============== //
+
+
+    $('.app-body').hide();
+    $('.login-body').removeClass('d-none');
+
+
+    var txtEmail = $('#txtEmail');
+    var txtPassword = $('#txtPassword');
+    var btnLogin = $('#btnLogin');
+    var btnSignUp = $('#btnSignUp');
+    var btnLogout = $('#btnLogout');
+
+
+    // ==================
+
+    btnLogin.on('click', e => {
+
+
+        var email = txtEmail.val();
+        var pass = txtPassword.val();
+        var auth = firebase.auth();
+
+        var promise = auth.signInWithEmailAndPassword(email, pass);
+
+        promise.catch(e => console.log(e.message));
+    });
+
+    // ==================
+
+
+    btnSignUp.on('click', e => {
+
+
+        var email = txtEmail.val();
+        var pass = txtPassword.val();
+
+
+           firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+            console.log(error.code);
+            console.log(error.message);
+          });
+
+    });
+
+    btnLogout.on('click', function() {
+        firebase.auth().signOut();
+        $('.app-body').hide();
+        $('.login-body').removeClass('d-none');
+    })
+
+    // ==================
+
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            console.log(firebaseUser);
+            console.log('signed in');
+            btnLogout.removeClass('d-none');
+
+            $('.app-body').show();
+            $('.login-body').addClass('d-none');
+
+        } else {
+            console.log('not logged in');
+            btnLogout.addClass('d-none');
+
+        }
+    });
+
+
+
+
+
+
+
+
     // RETRIVE INFORMATION FROM FIREBASE AND DISPLAY TO WINDOW
     database.ref().orderByChild('dateAdded').on('child_added', function(snapshot) {
 
@@ -47,7 +128,8 @@ $(document).ready(function() {
         var tableRow = $('<tr>');
 
 
-        // var nameColumn = $('<th id="name-column">');
+        tableRow.attr('train-item', ts.trainItemCount);
+
 
         var showTrainName = $('<td>');
         showTrainName.html(ts.trainName);
@@ -68,6 +150,8 @@ $(document).ready(function() {
         tableRow.append(showNextArrival);
 
 
+
+
         // CONVERT NEGATIVE VALUES OF MINUTES TO POSITIVE
         if (ts.minutesAway < 0) {
             ts.minutesAway = (ts.minutesAway * -1) + 1440;
@@ -81,16 +165,32 @@ $(document).ready(function() {
         }
 
 
+        var showEditButton = $('<td>');
+        var editButton = $('<button id="editButton" class="btn">');
+        editButton.html('EDIT');
+        showEditButton.append(editButton);
+        tableRow.append(showEditButton);
+
+        var showRemoveButton = $('<td>');
+        var removeButton = $('<button id="removeButton" class="btn">');
+        removeButton.html('REMOVE');
+        removeButton.attr('train-item', ts.trainItemCount);
+        showRemoveButton.append(removeButton);
+        tableRow.append(showRemoveButton);
+
+
         tableBody.append(tableRow);
 
-
-
-        // var new_item = $('<p>hello</p>').hide();
-        // parent.append(new_item);
-        // new_item.show('normal');
-
+        // TRAIN ITEM COUNT MUST BE AFTER ADDING ATTRIBUTE ABOVE
+        trainItemCount++;
 
         $('#google-maps-display').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyBhSBjmU-q9Jf9qFxhho_cfQjWwo2aJcYs&q=" + ts.destination);
+
+
+
+
+
+
 
     }); // end display from firebase
 
@@ -99,6 +199,8 @@ $(document).ready(function() {
     $('#submit').click(function() {
 
         event.preventDefault();
+
+
 
         // STORE INPUT VALUES INTO VARIABLES
         trainName = $('#train-name').val();
@@ -130,16 +232,18 @@ $(document).ready(function() {
             trainTime: trainTime,
             frequency: frequency,
             nextArrival: nextArrival,
-            minutesAway: minutesAway
+            minutesAway: minutesAway,
+            trainItemCount: trainItemCount,
+            remove: 'false'
         });
 
 
 
-        // $('#google-maps-display').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyBhSBjmU-q9Jf9qFxhho_cfQjWwo2aJcYs&q=" + destination);
-
-
 
     }); // end click event
+
+
+
 
 
 
