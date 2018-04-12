@@ -9,7 +9,7 @@ body {
 h1 {
     text-align: center;
     /* background: rgb(33, 201, 173); */
-    background: rgb(33, 146, 221);
+    background: rgb(57, 156, 223);
 
     color: white;
     padding: 20px;
@@ -148,7 +148,7 @@ label {
 
 #submit {
     /* background: rgb(33, 201, 173); */
-    background: rgb(0, 163, 212);
+    background: rgb(57, 156, 223);
 
     border: none;
     border-radius: 0;
@@ -190,6 +190,9 @@ label {
 
 /* ============ LOGIN ============ */
 
+#firebaseui-auth-container {
+    margin-top: 150px;
+}
 
 #btnLogin {
     background: gray;
@@ -268,6 +271,10 @@ label {
 #btnSignUp {
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.login-body {
+    margin-top: 100px;
 }
 
 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Train Scheduler</title>
+
+    <!-- BOOTSTRAP CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- FONT AWESOME CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- ORIGINAL RESET -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+
+    <!-- ORIGINAL CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- FIREBASE CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB7_FbS33j3ok15eWLA5uu3YQJQ2FmqIAg",
+        authDomain: "train-scheduler-8f14d.firebaseapp.com",
+        databaseURL: "https://train-scheduler-8f14d.firebaseio.com",
+        projectId: "train-scheduler-8f14d",
+        storageBucket: "train-scheduler-8f14d.appspot.com",
+        messagingSenderId: "451935226364"
+    };
+    firebase.initializeApp(config);
+    </script>    
+
+    <!-- MOMENTJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <!-- GOOGLE FONT CDN -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>TRAIN SCHEDULE</h1>
+        <div id="top-bar">
+            <p id='time'></p>
+            <p id='countdown'></p>
+
+            <button id="btnLogout" class="btn btn-action d-none" type="button">
+                LOG OUT
+            </button>
+        </div>
+    </header>
+
+
+    <!-- LOGIN -->
+    <!-- <div class="container login-body d-none">
+        <div class="login">
+            <p>E-MAIL</p>
+            <input id="txtEmail" type="email" placeholder="">
+            <p>PASSWORD</p>
+            <input id="txtPassword" type="password" placeholder="">
+            <button id="btnLogin" class="btn btn-action" type="button">
+                LOG IN
+            </button>
+    
+            <button id="btnSignUp" class="btn btn-secondary" type="button">
+                SIGN UP
+            </button>
+    
+
+        </div>
+    </div> -->
+
+
+
+
+    <div class="app-body">
+
+    <!-- DISPLAY SCHEDULE -->
+    <div id="schedule-display" class="">
+        <p id="current-schedule">SCHEDULE</p>
+        <div id="schedule-div" class="">
+          
+            <table class="table">
+                <thead>
+                    <tr id="schedule-titles">
+                    <th scope="col">TRAIN NAME</th>
+                    <th scope="col">DESTINATION</th>
+                    <th scope="col">FREQUENCY (min)</th>
+                    <th scope="col">NEXT ARRIVAL</th>
+                    <th scope="col">MINUTES AWAY</th>
+                    <th scope=""></th>
+                    <th scope=""></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- <tr>
+                    <th id="name-column"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+
+                </tbody>
+                </table>
+        </div>
+
+    </div>
+
+    <!-- SEARCH FORM -->
+        <div class="container">
+            <div class="row">
+
+                <div class="search-div col-5">
+                    <p id="search-parameters">SEARCH</p>
+                    <form>
+                        <div class="form-group">
+                            <label>TRAIN NAME</label>
+                            <input type="text" class="form-control" placeholder="" id="train-name"><br>
+
+                            <label>DESTINATION</label>
+                            <input type="text" class="form-control" placeholder="" id="destination"><br>
+
+                            <label>FIRST TRAIN TIME (HH:mm - military time)</label>
+                            <input type="text" class="form-control" placeholder="" id="train-time"><br>
+
+                            <label>FREQUENCY (min)</label>
+                            <input type="text" class="form-control" placeholder="" id="frequency">
+                        </div>
+
+                        <input type="submit" value="SUBMIT" class="btn btn-secondary" id="submit">
+                        <!-- <input type="submit" value="Clear Results" class="btn btn-secondary glyphicon glyphicon-search" id="clear"> -->
+                    </form>
+                </div>
+
+                <div class="col-2"></div>
+
+
+                <div class="google-maps col-5">
+                    <p id="google-maps-title">GOOGLE MAPS</p>
+
+                    <iframe id="google-maps-display"
+                        width="473"
+                        height="375"
+                        frameborder="0" style="border:0"
+                        allowfullscreen>
+
+                    </iframe>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- ORIGINAL JAVASCRIPT -->
+    <script src="assets/javascript/app.js"></script>
+
+          
+</body>
